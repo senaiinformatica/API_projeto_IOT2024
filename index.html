@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MQTT Client test</title>
+    <title>MQTT Client</title>
     <script src="https://cdn.socket.io/4.5.0/socket.io.min.js"></script>
     <style>
         body {
@@ -71,7 +71,7 @@
 
     <script>
         // Conectar ao backend Socket.IO
-        const socket = io('http://localhost:3000');
+        const socket = io('http://projetomqttsenai.ddns.net:3000');
 
         // Função para exibir mensagens no frontend
         function addMessage(topic, message) {
@@ -93,7 +93,7 @@
             const certFile = document.getElementById('certFile').value;
             const caFile = document.getElementById('caFile').value;
 
-            const response = await fetch('http://localhost:3000/connect', {
+            const response = await fetch('http://projetomqttsenai.ddns.net:3000/connect', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ endpoint, keyFile, certFile, caFile })
@@ -112,7 +112,7 @@
 
         // Desconectar do Broker MQTT
         async function disconnectFromBroker() {
-            const response = await fetch('http://localhost:3000//disconnect', {
+            const response = await fetch('http://projetomqttsenai.ddns.net:3000/disconnect', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' }
             });
@@ -133,7 +133,7 @@
             const topic = document.getElementById('publishTopic').value;
             const message = document.getElementById('publishMessage').value;
 
-            const response = await fetch('http://localhost:3000/publish', {
+            const response = await fetch('http://projetomqttsenai.ddns.net:3000/publish', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ topic, message: JSON.parse(message) })
@@ -147,7 +147,7 @@
         async function subscribeToTopic() {
             const topic = document.getElementById('subscribeTopic').value;
 
-            const response = await fetch('http://localhost:3000/subscribe', {
+            const response = await fetch('http://projetomqttsenai.ddns.net:3000/subscribe', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ topic })

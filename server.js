@@ -4,7 +4,7 @@ const express = require('express');
 const http = require('http');  // Precisamos do http para integrar com Socket.IO
 const socketIo = require('socket.io');  // Adicionar suporte para Socket.IO
 const cors = require('cors');
-
+const { exec } = require('child_process');
 
 const app = express();
 const server = http.createServer(app);  // Criar servidor HTTP com Express
@@ -21,6 +21,7 @@ let isConnected = false;  // Verifica se o cliente está conectado
 let subscribedTopics = [];  // Armazena os tópicos aos quais estamos inscritos
 
 app.use(cors());
+app.use(express.json());
 
 // Função para conectar ao MQTT broker com os certificados
 function connectToMQTT(endpoint, keyPath, certPath, caPath) {
@@ -165,6 +166,23 @@ app.post('/subscribe', (req, res) => {
         console.log(`Inscrito no tópico ${topic}`);
         res.json({ message: `Inscrito no tópico ${topic}` });
     });
+});
+
+app.post('/update', (req, res) => {
+    // Verifica se o push veio da branch correta
+    if (req.body.ref === 'refs/heads/main') {
+        // Executa o script de deploy
+        exec('/var/www/html/deploy.sh', (err, stdout, stderr) => {
+            if (err) {
+                console.error(`Erro ao executar o script: ${stderr}`);
+                return res.status(500).send('Deploy failed');
+            }
+            console.log(`Saída do script: ${stdout}`);
+            res.status(200).send('Deploy successful');
+        });
+    } else {
+        res.status(400).send('Wrong branch');
+    }
 });
 
 // Servidor ouvindo na porta 3000
