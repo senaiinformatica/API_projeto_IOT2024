@@ -169,21 +169,28 @@ app.post('/subscribe', (req, res) => {
 });
 
 app.post('/update', (req, res) => {
+    console.log('Rota /update foi chamada');
+    console.log('Payload recebido:', req.body);
+
     // Verifica se o push veio da branch correta
     if (req.body.ref === 'refs/heads/main') {
+        console.log('Branch correta: executando script de deploy');
+        
         // Executa o script de deploy
         exec('/var/www/html/deploy.sh', (err, stdout, stderr) => {
             if (err) {
                 console.error(`Erro ao executar o script: ${stderr}`);
-                return res.status(500).send('Deploy failed');
+                return res.status(500).send('Deploy failed'); // Retorna erro 500
             }
             console.log(`Saída do script: ${stdout}`);
-            res.status(200).send('Deploy successful');
+            res.status(200).send('Deploy successful'); // Retorna sucesso
         });
     } else {
-        res.status(400).send('Wrong branch');
+        console.log('Branch incorreta:', req.body.ref);
+        res.status(400).send('Wrong branch'); // Retorna erro 400 se a branch não for 'main'
     }
 });
+
 
 // Servidor ouvindo na porta 3000
 server.listen(port, () => {
