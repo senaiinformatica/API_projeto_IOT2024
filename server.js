@@ -177,7 +177,7 @@ app.post('/update', (req, res) => {
         console.log('Branch correta: executando script de deploy');
         
         // Executa o script de deploy
-        exec('/var/www/html/deploy.sh', (err, stdout, stderr) => {
+        exec('/var/www/html/deploy.sh', { stdio: 'inherit' }, (err, stdout, stderr) => {
             if (err) {
                 console.error(`Erro ao executar o script: ${stderr}`);
                 return res.status(500).send('Deploy failed'); // Retorna erro 500
