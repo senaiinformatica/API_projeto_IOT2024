@@ -196,3 +196,4 @@ app.post('/update', (req, res) => {
 server.listen(port, () => {
     console.log(`Servidor rodando na porta ${port}`);
 });
+
