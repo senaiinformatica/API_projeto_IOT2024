@@ -1,161 +1,132 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SERVIDOR MQTT aaaa</title>
-    <script src="https://cdn.socket.io/4.5.0/socket.io.min.js"></script>
+    <title>MQTT Connection</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
         }
-        label, input, button {
-            display: block;
-            margin: 10px 0;
+        .container {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        #messages {
-            border: 1px solid #ccc;
+        input, button {
+            width: 100%;
             padding: 10px;
-            background-color: #f4f4f4;
-            max-height: 300px;
-            overflow-y: scroll;
+            margin: 10px 0;
+            font-size: 1rem;
         }
         button {
-            padding: 10px;
-            background-color: #007bff;
+            background-color: #28a745;
             color: white;
             border: none;
             cursor: pointer;
         }
-        button:disabled {
-            background-color: grey;
+        button:hover {
+            background-color: #218838;
         }
     </style>
 </head>
 <body>
 
-    <h1>MQTT Client</h1>
+    <div class="container">
+        <h2>MQTT Connection</h2>
 
-    <h2>Conectar ao Broker</h2>
-    <label for="endpoint">Endpoint:</label>
-    <input type="text" id="endpoint" value="a3bm9b3szpp5y6-ats.iot.us-east-1.amazonaws.com" />
+        <label for="user">Nome do Usuário:</label>
+        <input type="text" id="user" placeholder="Digite seu nome">
 
-    <label for="keyFile">Key File (nome do arquivo):</label>
-    <input type="text" id="keyFile" value="private.pem.key" />
+        <label for="token">Token (4 dígitos):</label>
+        <input type="password" id="token" maxlength="4" placeholder="Digite seu token">
 
-    <label for="certFile">Cert File (nome do arquivo):</label>
-    <input type="text" id="certFile" value="certificate.pem.crt" />
+        <button id="connectBtn">Conectar ao Broker e Inscrever-se</button>
 
-    <label for="caFile">CA File (nome do arquivo):</label>
-    <input type="text" id="caFile" value="AmazonRootCA1.pem" />
+        <button id="publishBtn" disabled>Publicar no Tópico</button>
 
-    <button id="connectButton" onclick="connectToBroker()">Conectar</button>
-    <button id="disconnectButton" onclick="disconnectFromBroker()" disabled>Desconectar</button>
-
-    <h2>Inscrever-se em um Tópico</h2>
-    <label for="subscribeTopic">Tópico:</label>
-    <input type="text" id="subscribeTopic" value="meu/topico" />
-    <button id="subscribeButton" onclick="subscribeToTopic()" disabled>Inscrever-se</button>
-
-    <h2>Publicar em um Tópico</h2>
-    <label for="publishTopic">Tópico:</label>
-    <input type="text" id="publishTopic" value="meu/topico" />
-
-    <label for="publishMessage">Mensagem (JSON):</label>
-    <input type="text" id="publishMessage" value='{"message": "Hello MQTT"}' />
-    <button id="publishButton" onclick="publishToTopic()" disabled>Publicar</button>
-
-    <h2>Mensagens Recebidas</h2>
-    <div id="messages"></div>
+        <p id="status" style="color: green; font-weight: bold;"></p>
+    </div>
 
     <script>
-        // Conectar ao backend Socket.IO
-        const socket = io('http://projetomqttsenai.ddns.net:3000');
+        const connectBtn = document.getElementById('connectBtn');
+        const publishBtn = document.getElementById('publishBtn');
+        const statusEl = document.getElementById('status');
+        let isConnected = false;
 
-        // Função para exibir mensagens no frontend
-        function addMessage(topic, message) {
-            const messagesDiv = document.getElementById('messages');
-            const messageElement = document.createElement('p');
-            messageElement.textContent = `Tópico: ${topic} | Mensagem: ${message}`;
-            messagesDiv.appendChild(messageElement);
-        }
+        connectBtn.addEventListener('click', () => {
+            const user = document.getElementById('user').value;
+            const token = document.getElementById('token').value;
 
-        // Receber mensagens MQTT em tempo real via Socket.IO
-        socket.on('mqtt_message', function (data) {
-            addMessage(data.topic, data.message);
+            if (user === '' || token === '') {
+                alert("Por favor, preencha todos os campos.");
+                return;
+            }
+
+            // Requisição para conectar ao broker e inscrever-se no tópico
+            fetch('http://localhost:3000/connect', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    endpoint: 'broker.hivemq.com', // Substitua com seu endpoint MQTT
+                    keyFile: 'private.key',  // Ajuste conforme seus arquivos
+                    certFile: 'client.cert',
+                    caFile: 'ca.cert'
+                })
+            }).then(response => response.json())
+              .then(data => {
+                console.log(data);
+                statusEl.innerText = "Conectado ao Broker! Inscrito no tópico.";
+                isConnected = true;
+                publishBtn.disabled = false;
+              }).catch(error => {
+                console.error('Erro ao conectar:', error);
+                statusEl.innerText = "Erro ao conectar ao Broker.";
+              });
         });
 
-        // Conectar ao Broker MQTT
-        async function connectToBroker() {
-            const endpoint = document.getElementById('endpoint').value;
-            const keyFile = document.getElementById('keyFile').value;
-            const certFile = document.getElementById('certFile').value;
-            const caFile = document.getElementById('caFile').value;
+        publishBtn.addEventListener('click', () => {
+            const user = document.getElementById('user').value;
+            const token = document.getElementById('token').value;
 
-            const response = await fetch('http://projetomqttsenai.ddns.net:3000/connect', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ endpoint, keyFile, certFile, caFile })
-            });
-
-            const result = await response.json();
-            alert(result.message);
-
-            if (response.ok) {
-                document.getElementById('connectButton').disabled = true;
-                document.getElementById('disconnectButton').disabled = false;
-                document.getElementById('publishButton').disabled = false;
-                document.getElementById('subscribeButton').disabled = false;
+            if (!isConnected) {
+                alert("Por favor, conecte-se primeiro.");
+                return;
             }
-        }
 
-        // Desconectar do Broker MQTT
-        async function disconnectFromBroker() {
-            const response = await fetch('http://projetomqttsenai.ddns.net:3000/disconnect', {
+            const payload = {
+                user: user,
+                token: token,
+                LedStatus: "2"
+            };
+
+            // Publica a mensagem no tópico
+            fetch('http://localhost:3000/publish', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' }
-            });
-
-            const result = await response.json();
-            alert(result.message);
-
-            if (response.ok) {
-                document.getElementById('connectButton').disabled = false;
-                document.getElementById('disconnectButton').disabled = true;
-                document.getElementById('publishButton').disabled = true;
-                document.getElementById('subscribeButton').disabled = true;
-            }
-        }
-
-        // Publicar em um Tópico MQTT
-        async function publishToTopic() {
-            const topic = document.getElementById('publishTopic').value;
-            const message = document.getElementById('publishMessage').value;
-
-            const response = await fetch('http://projetomqttsenai.ddns.net:3000/publish', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ topic, message: JSON.parse(message) })
-            });
-
-            const result = await response.json();
-            alert(result.message);
-        }
-
-        // Inscrever-se em um Tópico MQTT
-        async function subscribeToTopic() {
-            const topic = document.getElementById('subscribeTopic').value;
-
-            const response = await fetch('http://projetomqttsenai.ddns.net:3000/subscribe', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ topic })
-            });
-
-            const result = await response.json();
-            alert(result.message);
-        }
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    topic: 'meuTopico/mqtt',  // Substitua com seu tópico
+                    message: payload
+                })
+            }).then(response => response.json())
+              .then(data => {
+                console.log('Publicado com sucesso:', data);
+                alert('Mensagem publicada no tópico!');
+              }).catch(error => {
+                console.error('Erro ao publicar:', error);
+                alert('Erro ao publicar no tópico.');
+              });
+        });
     </script>
 
 </body>
