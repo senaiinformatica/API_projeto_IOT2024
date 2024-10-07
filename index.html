@@ -70,7 +70,7 @@
             }
 
             // Requisição para conectar ao broker e inscrever-se no tópico
-            fetch('http://localhost:3000/connect', {
+            fetch('http://projetomqttsenai.ddns.net:3000/connect', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -109,7 +109,7 @@
             };
 
             // Publica a mensagem no tópico
-            fetch('http://localhost:3000/publish', {
+            fetch('http://projetomqttsenai.ddns.net/publish', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
