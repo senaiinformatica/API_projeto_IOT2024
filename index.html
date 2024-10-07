@@ -76,10 +76,10 @@
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    endpoint: 'broker.hivemq.com', // Substitua com seu endpoint MQTT
-                    keyFile: 'private.key',  // Ajuste conforme seus arquivos
-                    certFile: 'client.cert',
-                    caFile: 'ca.cert'
+                    endpoint: 'a3bm9b3szpp5y6-ats.iot.us-east-1.amazonaws.com', // Substitua com seu endpoint MQTT
+                    keyFile: 'private.pem.key',  // Ajuste conforme seus arquivos
+                    certFile: 'certificate.pem.crt',
+                    caFile: 'AmazonRootCA1.pem'
                 })
             }).then(response => response.json())
               .then(data => {
