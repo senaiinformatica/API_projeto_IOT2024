@@ -126,14 +126,21 @@
                         const message = JSON.parse(msg.message);
 
                         // Verifica a chave StatusLed no JSON recebido
-                        if (message.StatusLed === true) {
-                            publishBtn.classList.remove('red');
-                            publishBtn.classList.add('green');
-                            publishBtn.innerText = 'Led Ligado';
-                        } else if (message.StatusLed === false) {
-                            publishBtn.classList.remove('green');
-                            publishBtn.classList.add('red');
-                            publishBtn.innerText = 'Led Desligado';
+                        try {
+                            const message = JSON.parse(msg.message);  // Certifique-se de que a mensagem seja um JSON válido
+
+                            // Verifica a chave StatusLed no JSON recebido
+                            if (message.StatusLed === true) {
+                                publishBtn.classList.remove('red');
+                                publishBtn.classList.add('green');
+                                publishBtn.innerText = 'Led Ligado';
+                            } else if (message.StatusLed === false) {
+                                publishBtn.classList.remove('green');
+                                publishBtn.classList.add('red');
+                                publishBtn.innerText = 'Led Desligado';
+                            }
+                        } catch (error) {
+                            console.error("Erro ao processar mensagem recebida:", error);
                         }
                     });
 
