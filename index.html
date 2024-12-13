@@ -4,205 +4,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MQTT Connection</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-            margin: 0;
-            padding: 20px;
-        }
+    <title>1MM - Galeria de Projetos</title>
 
-        .container {
-            max-width: 400px;
-            margin: auto;
-            padding: 20px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        input,
-        button {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            font-size: 1rem;
-        }
-
-        button {
-            background-color: #dc3545;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-
-        button#publishBtn {
-            background-color: #007bff;
-        }
-
-        button#publishBtn.disabled {
-            background-color: #6c757d;
-            cursor: not-allowed;
-        }
-
-        button.green {
-            background-color: #28a745;
-        }
-
-        button.red {
-            background-color: #dc3545;
-        }
-
-        button:hover {
-            background-color: #218838;
-        }
-
-        #status {
-            color: green;
-            font-weight: bold;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <header>
+        <div class="container-grid">
+            <div class="logo">
+                <img src="img/gallery.svg" alt="Imagem de uma galeria de fotos">
+                <span>Galeria de Projetos</span>
+            </div>
 
-    <div class="container">
-        <h2>MQTT Connection</h2>
-
-        <label for="user">Nome do cara:</label>
-        <input type="text" id="user" placeholder="Digite seu nome">
-
-        <label for="token">Token (4 dígitos):</label>
-        <input type="password" id="token" maxlength="4" placeholder="Digite seu token">
-
-        <button id="connectBtn">Conectar ao Broker e Inscrever-se</button>
-
-        <button id="publishBtn" disabled>Publicar no Tópico</button>
-
-        <p id="status"></p>
+            <span>Projetos Multimídia</span>
+        </div>
+    </header>
+    <div class="banner">
+        <div class="conteudo-banner">
+            <h1>Projetos Multimídia</h1>
+            <a href="#">Ver Projetos</a>
+        </div>
     </div>
+    <section id="sobre">
+        <h2>Sobre essa página</h2>
+        <div class="container-grid">
+            <div class="texto-sobre">
+                <p>Esta página foi criada para mostrar os projetos de aprendizagem da turma do primeiro semestre do Curso Técnico em Multimídia.</p>
+                <p>Messe primeiro semestre os alunos aprenderam e praticaram vários conhecimentos em projetos baseados em situações reais, e como trabalho principal do semestre, cada aluno desenvolveu um projeto aplicando os conhecimentos adquiridos durante o período.</p>
+                <p>Dentre esses conhecimentos, estão a criação de Branding, criação de Logo, técnicas de Naming, criação de Manual da Marca, criação de soluções utilizando Design Thinking, Cores, Tipografia e Gestalt, criação de uma landing page, UX e UI, HTML e CSS.</p>
+            </div>
+        </div>
+    </section>
+    <section id="projetos">
+        <h2>Galeria de Projetos</h2>
 
-    <script src="/socket.io/socket.io.js"></script> <!-- Carrega o cliente Socket.IO -->
-    <script>
-        const connectBtn = document.getElementById('connectBtn');
-        const publishBtn = document.getElementById('publishBtn');
-        const statusEl = document.getElementById('status');
-        let isConnected = false;
-        let socket;
+        <div class="container-grid grid-projetos">
+            <a href="#" target="_blank" rel="noopener noreferrer">
+                <div class="card">
+                    <img src="" alt="">
+                    <div class="texto-nome">
+                        <span class="nome-projeto">GamificaAi</span>
+                        <span class="user-github">Thiago-Nascimento</span>
+                    </div>
+                </div>
+            </a>
+            <a href="#" target="_blank" rel="noopener noreferrer">
+                <div class="card">
+                    <img src="" alt="">
+                    <div class="texto-nome">
+                        <span class="nome-projeto">GamificaAi</span>
+                        <span class="user-github">Thiago-Nascimento</span>
+                    </div>
+                </div>
+            </a>
+            <a href="#" target="_blank" rel="noopener noreferrer">
+                <div class="card">
+                    <img src="" alt="">
+                    <div class="texto-nome">
+                        <span class="nome-projeto">GamificaAi</span>
+                        <span class="user-github">Thiago-Nascimento</span>
+                    </div>
+                </div>
+            </a>
+            <a href="#" target="_blank" rel="noopener noreferrer">
+                <div class="card">
+                    <img src="" alt="">
+                    <div class="texto-nome">
+                        <span class="nome-projeto">GamificaAi</span>
+                        <span class="user-github">Thiago-Nascimento</span>
+                    </div>
+                </div>
+            </a>
+            <a href="#" target="_blank" rel="noopener noreferrer">
+                <div class="card">
+                    <img src="" alt="">
+                    <div class="texto-nome">
+                        <span class="nome-projeto">GamificaAi</span>
+                        <span class="user-github">Thiago-Nascimento</span>
+                    </div>
+                </div>
+            </a>
+            <a href="#" target="_blank" rel="noopener noreferrer">
+                <div class="card">
+                    <img src="" alt="">
+                    <div class="texto-nome">
+                        <span class="nome-projeto">GamificaAi</span>
+                        <span class="user-github">Thiago-Nascimento</span>
+                    </div>
+                </div>
+            </a>
+            <a href="#" target="_blank" rel="noopener noreferrer">
+                <div class="card">
+                    <img src="" alt="">
+                    <div class="texto-nome">
+                        <span class="nome-projeto">GamificaAi</span>
+                        <span class="user-github">Thiago-Nascimento</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
+    <footer>
+        <div class="container-grid">
+            <span class="copyright">2024 - Direitos Reservados</span>
+            <div class="creditos">
+                <span>Desenvolvido por:</span>
+                <div class="user-creditos">
+                    <img src="img/github.svg" alt="">
+                    <a href="#" target="_blank">felipe-tneves</a>
+                </div>
+                <div class="user-creditos">
+                    <img src="img/github.svg" alt="">
+                    <a href="#" target="_blank">Thiago-Nascimento</a>
+                </div>
+            </div>
 
-        connectBtn.addEventListener('click', () => {
-            const user = document.getElementById('user').value;
-            const token = document.getElementById('token').value;
-
-            if (user === '' || token === '') {
-                alert("Por favor, preencha todos os campos.");
-                return;
-            }
-
-            // Requisição para conectar ao broker e inscrever-se no tópico
-            fetch('http://projetomqttsenai.ddns.net:3000/connect', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    endpoint: 'a3bm9b3szpp5y6-ats.iot.us-east-1.amazonaws.com', // Substitua com seu endpoint MQTT
-                    keyFile: 'private.pem.key',  // Ajuste conforme seus arquivos
-                    certFile: 'certificate.pem.crt',
-                    caFile: 'AmazonRootCA1.pem'
-                })
-            }).then(response => response.json())
-                .then(data => {
-                    console.log(data);
-                    statusEl.innerText = "Conectado ao Broker! Inscrito no tópico.";
-                    isConnected = true;
-                    publishBtn.disabled = false;
-
-                    // Inicializa o Socket.IO e começa a escutar as mensagens
-                    socket = io('http://projetomqttsenai.ddns.net:3000');
-                    socket.on('mqtt_message', (msg) => {
-                        console.log('Mensagem recebida via WebSocket:', msg);
-                        const message = JSON.parse(msg.message);
-
-                        // Verifica a chave StatusLed no JSON recebido
-                        try {
-                            const message = JSON.parse(msg.message);  // Certifique-se de que a mensagem seja um JSON válido
-
-                            // Verifica a chave StatusLed no JSON recebido
-                            if (message.StatusLed === true) {
-                                publishBtn.classList.remove('red');
-                                publishBtn.classList.add('green');
-                                publishBtn.innerText = 'Led Ligado';
-                            } else if (message.StatusLed === false) {
-                                publishBtn.classList.remove('green');
-                                publishBtn.classList.add('red');
-                                publishBtn.innerText = 'Led Desligado';
-                            }
-                        } catch (error) {
-                            console.error("Erro ao processar mensagem recebida:", error);
-                        }
-                    });
-
-                    // Requisição para se inscrever no tópico MQTT
-                    fetch('http://projetomqttsenai.ddns.net:3000/subscribe', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            topic: 'meuTopico/mqtt'  // Substitua com seu tópico MQTT
-                        })
-                    }).then(response => response.json())
-                        .then(subscribeData => {
-                            console.log(subscribeData);
-                            alert('Inscrito no tópico MQTT com sucesso!');
-                        }).catch(subscribeError => {
-                            console.error('Erro ao se inscrever no tópico:', subscribeError);
-                            alert('Erro ao se inscrever no tópico MQTT.');
-                        });
-                }).catch(error => {
-                    console.error('Erro ao conectar:', error);
-                    statusEl.innerText = "Erro ao conectar ao Broker.";
-                });
-        });
-
-        publishBtn.addEventListener('click', () => {
-            const user = document.getElementById('user').value;
-            const token = document.getElementById('token').value;
-
-            if (!isConnected) {
-                alert("Por favor, conecte-se primeiro.");
-                return;
-            }
-
-            const payload = {
-                user: user,
-                token: token,
-                LedStatus: "2"
-            };
-
-            // Publica a mensagem no tópico
-            fetch('http://projetomqttsenai.ddns.net:3000/publish', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    topic: 'meuTopico/mqtt',  // Substitua com seu tópico
-                    message: payload
-                })
-            }).then(response => response.json())
-                .then(data => {
-                    console.log('Publicado com sucesso:', data);
-                    alert('Mensagem publicada no tópico!');
-                }).catch(error => {
-                    console.error('Erro ao publicar:', error);
-                    alert('Erro ao publicar no tópico.');
-                });
-        });
-    </script>
-
+        </div>
+    </footer>
 </body>
 
 </html>

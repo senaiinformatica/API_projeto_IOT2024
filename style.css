@@ -1,0 +1,285 @@
+@font-face {
+    font-family: "Montserrat";
+    src: url(fonts/Montserrat-VariableFont_wght.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --cor-header-footer: #BE024E;
+    --cor-banner: #7B0132;
+
+    --tipografia: "Montserrat"
+}
+
+body {
+    font-family: var(--tipografia);
+}
+
+.container-grid {
+    max-width: 1520px;
+    width: 85vw;
+
+    margin: 0 auto;
+}
+
+header {
+    height: 100px;
+    
+    background-color: var(--cor-header-footer);
+    color: white;
+}
+
+header .container-grid {
+    height: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    width: 200px;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.banner {
+    height: calc(100vh - 100px);
+
+    background-color: var(--cor-banner);
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.conteudo-banner {
+    height: 120px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    text-align: center;
+}
+
+.conteudo-banner a {
+    width: 200px;
+    height: 47px;
+
+    color: white;
+
+    border: 2px solid white;
+    text-decoration: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: 500ms;
+}
+
+.conteudo-banner a:hover {
+    transform: scale(1.05);
+}
+
+section {
+    padding: 80px 0;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+#sobre .container-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.texto-sobre {
+    width: 60%;
+    margin: 0 auto;
+
+    line-height: 2;
+}
+
+.grid-projetos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5.3%;
+}
+
+.grid-projetos a {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 21%;
+
+    margin-bottom: 50px;
+}
+
+.card {
+    /* width: 365px; */
+    height: 400px;
+
+    box-shadow: 4px 4px 10px 0px #000000a9;
+
+    border-radius: 6px;
+
+    position: relative;
+}
+
+.card .texto-nome {
+    height: 30%;
+    width: 100%;
+
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+
+    color: white;
+    background-color: #7b0132ad;
+
+    position: absolute;
+    bottom: 0px;
+}
+
+footer {
+    height: 190px;
+
+    color: white;
+    background-color: var(--cor-header-footer);
+}
+
+footer .container-grid {
+    height: 100%;
+
+    display: flex;
+    justify-content: flex-end;
+}
+
+footer .copyright {
+    flex: 0 0 33%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer .creditos {
+    flex: 0 0 33%;
+    align-self: center;
+
+    height: 60%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+footer .creditos > span {
+    margin-bottom: 30px;
+}
+
+footer .user-creditos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 15px;
+}
+
+.user-creditos a {
+    color: white;
+}
+
+@media screen and (max-width: 1000px) {
+    .texto-sobre {
+        width: 80%
+    }
+
+    .grid-projetos a {
+        flex-basis: 29%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .grid-projetos a {
+        flex-basis: 47%;
+    }
+}
+
+@media screen and (max-width: 770px) {
+    /* Quebrar footer */
+    footer {
+        height: unset;
+
+        padding: 80px 0;
+
+        text-align: center;
+    }
+    
+    footer .container-grid {
+        flex-direction: column-reverse;
+
+        gap: 80px;
+    }
+
+    footer .copyright, footer .creditos {
+        flex: unset;        
+    }
+
+    footer .creditos {
+        align-items: flex-start;
+    }
+
+    footer .creditos span {
+        width: 100%;
+    }
+
+    .user-creditos {
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .texto-sobre {
+        width: 95%;
+    }
+    
+    .grid-projetos {
+        width: 100vw;
+
+        padding-left: 20px;
+        padding-top: 20px;
+        
+        flex-wrap: nowrap;
+
+        overflow-x: scroll;
+
+    }
+    
+    .grid-projetos a {
+        width: 250px;
+
+        flex-basis: unset;
+    }
+}
+
+/* Feito até 470px */
