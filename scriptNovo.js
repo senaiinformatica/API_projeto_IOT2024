@@ -166,6 +166,11 @@ window.publicar = function (projeto) {
         [projeto.payload1.atributo]: projeto.payload1.valor
     };
 
+    console.log(projeto);
+    
+    console.log('mensagem:', mensagem);
+    
+
     fetch(projeto.linkPublish, {
         method: 'POST',
         headers: {
