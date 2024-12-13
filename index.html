@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1MM - Galeria de Projetos</title>
+    <title>CAI - Galeria de Projetos</title>
 
     <link rel="stylesheet" href="style.css">
+    <script type="module" src="./scriptNovo.js" defer></script>
 </head>
 
 <body>
@@ -17,94 +18,128 @@
                 <span>Galeria de Projetos</span>
             </div>
 
-            <span>Projetos Multimídia</span>
+            <a onclick="mostrarHome()" class="display_none span_voltar">Voltar</a>
+
+            <span>Projetos CAI</span>
         </div>
     </header>
-    <div class="banner">
-        <div class="conteudo-banner">
-            <h1>Projetos Multimídia</h1>
-            <a href="#">Ver Projetos</a>
-        </div>
-    </div>
-    <section id="sobre">
-        <h2>Sobre essa página</h2>
-        <div class="container-grid">
-            <div class="texto-sobre">
-                <p>Esta página foi criada para mostrar os projetos de aprendizagem da turma do primeiro semestre do Curso Técnico em Multimídia.</p>
-                <p>Messe primeiro semestre os alunos aprenderam e praticaram vários conhecimentos em projetos baseados em situações reais, e como trabalho principal do semestre, cada aluno desenvolveu um projeto aplicando os conhecimentos adquiridos durante o período.</p>
-                <p>Dentre esses conhecimentos, estão a criação de Branding, criação de Logo, técnicas de Naming, criação de Manual da Marca, criação de soluções utilizando Design Thinking, Cores, Tipografia e Gestalt, criação de uma landing page, UX e UI, HTML e CSS.</p>
+
+    <main class="main_home">
+        <div class="banner">
+            <div class="conteudo-banner">
+                <h1>Projetos CAI</h1>
+                <a href="#projetos">Ver Projetos</a>
             </div>
         </div>
-    </section>
-    <section id="projetos">
-        <h2>Galeria de Projetos</h2>
+        <section id="sobre">
+            <h2>Sobre essa página</h2>
+            <div class="container-grid">
+                <div class="texto-sobre">
+                    <p>Esta página foi criada para mostrar os projetos de aprendizagem da turma do primeiro semestre do
+                        Curso Técnico em Multimídia.</p>
+                    <p>Nesse primeiro semestre os alunos aprenderam e praticaram vários conhecimentos em projetos
+                        baseados em situações reais, e como trabalho principal do semestre, cada aluno desenvolveu um
+                        projeto aplicando os conhecimentos adquiridos durante o período.</p>
+                    <p>Dentre esses conhecimentos, estão a criação de Branding, criação de Logo, técnicas de Naming,
+                        criação de Manual da Marca, criação de soluções utilizando Design Thinking, Cores, Tipografia e
+                        Gestalt, criação de uma landing page, UX e UI, HTML e CSS.</p>
+                </div>
+            </div>
+        </section>
+        <section id="projetos">
+            <h2>Galeria de Projetos</h2>
 
-        <div class="container-grid grid-projetos">
-            <a href="#" target="_blank" rel="noopener noreferrer">
-                <div class="card">
-                    <img src="" alt="">
-                    <div class="texto-nome">
-                        <span class="nome-projeto">GamificaAi</span>
-                        <span class="user-github">Thiago-Nascimento</span>
+            <div class="container-grid grid-projetos">
+                <a href="#" onclick="mostrarForm(projeto1)">
+                    <div class="card">
+                        <img src="" alt="">
+                        <div class="texto-nome">
+                            <span class="nome-projeto">GamificaAi</span>
+                            <span class="user-github">Thiago-Nascimento</span>
+                        </div>
                     </div>
-                </div>
-            </a>
-            <a href="#" target="_blank" rel="noopener noreferrer">
-                <div class="card">
-                    <img src="" alt="">
-                    <div class="texto-nome">
-                        <span class="nome-projeto">GamificaAi</span>
-                        <span class="user-github">Thiago-Nascimento</span>
+                </a>
+                <a href="#" onclick="mostrarForm(projeto2)">
+                    <div class="card">
+                        <img src="" alt="">
+                        <div class="texto-nome">
+                            <span class="nome-projeto">GamificaAi</span>
+                            <span class="user-github">Thiago-Nascimento</span>
+                        </div>
                     </div>
-                </div>
-            </a>
-            <a href="#" target="_blank" rel="noopener noreferrer">
-                <div class="card">
-                    <img src="" alt="">
-                    <div class="texto-nome">
-                        <span class="nome-projeto">GamificaAi</span>
-                        <span class="user-github">Thiago-Nascimento</span>
+                </a>
+                <a href="#">
+                    <div class="card">
+                        <img src="" alt="">
+                        <div class="texto-nome">
+                            <span class="nome-projeto">GamificaAi</span>
+                            <span class="user-github">Thiago-Nascimento</span>
+                        </div>
                     </div>
-                </div>
-            </a>
-            <a href="#" target="_blank" rel="noopener noreferrer">
-                <div class="card">
-                    <img src="" alt="">
-                    <div class="texto-nome">
-                        <span class="nome-projeto">GamificaAi</span>
-                        <span class="user-github">Thiago-Nascimento</span>
+                </a>
+                <a href="#">
+                    <div class="card">
+                        <img src="" alt="">
+                        <div class="texto-nome">
+                            <span class="nome-projeto">GamificaAi</span>
+                            <span class="user-github">Thiago-Nascimento</span>
+                        </div>
                     </div>
-                </div>
-            </a>
-            <a href="#" target="_blank" rel="noopener noreferrer">
-                <div class="card">
-                    <img src="" alt="">
-                    <div class="texto-nome">
-                        <span class="nome-projeto">GamificaAi</span>
-                        <span class="user-github">Thiago-Nascimento</span>
+                </a>
+                <a href="#">
+                    <div class="card">
+                        <img src="" alt="">
+                        <div class="texto-nome">
+                            <span class="nome-projeto">GamificaAi</span>
+                            <span class="user-github">Thiago-Nascimento</span>
+                        </div>
                     </div>
-                </div>
-            </a>
-            <a href="#" target="_blank" rel="noopener noreferrer">
-                <div class="card">
-                    <img src="" alt="">
-                    <div class="texto-nome">
-                        <span class="nome-projeto">GamificaAi</span>
-                        <span class="user-github">Thiago-Nascimento</span>
+                </a>
+                <a href="#">
+                    <div class="card">
+                        <img src="" alt="">
+                        <div class="texto-nome">
+                            <span class="nome-projeto">GamificaAi</span>
+                            <span class="user-github">Thiago-Nascimento</span>
+                        </div>
                     </div>
-                </div>
-            </a>
-            <a href="#" target="_blank" rel="noopener noreferrer">
-                <div class="card">
-                    <img src="" alt="">
-                    <div class="texto-nome">
-                        <span class="nome-projeto">GamificaAi</span>
-                        <span class="user-github">Thiago-Nascimento</span>
+                </a>
+                <a href="#">
+                    <div class="card">
+                        <img src="" alt="">
+                        <div class="texto-nome">
+                            <span class="nome-projeto">GamificaAi</span>
+                            <span class="user-github">Thiago-Nascimento</span>
+                        </div>
                     </div>
-                </div>
-            </a>
-        </div>
-    </section>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- <main class="main_form display_none">
+        <form class="main_form_container">
+            <h2>MQTT Connection</h2>
+
+            <label for="user">Nome:</label>
+            <input required type="text" id="user" placeholder="Digite seu nome">
+
+            <label for="token">Token (4 dígitos):</label>
+            <input required type="password" id="token" maxlength="4" placeholder="Digite seu token">
+
+            <button id="connectBtn" onclick="conectar()">Conectar</button>
+
+            <div class="linha_btn">
+                <button onclick="publicar1()" id="btnAcao1" class="btn_acao" disabled>Botão 1</button>
+                <button onclick="publicar2()" id="btnAcao2" class="btn_acao" disabled>Botão 2</button>
+                <button onclick="publicar3()" id="btnAcao3" class="btn_acao" disabled>Botão 3</button>
+                <button onclick="publicar4()" id="btnAcao4" class="btn_acao" disabled>Botão 4</button>
+            </div>
+
+            <p id="status"></p>
+        </form>
+    </main> -->
+
     <footer>
         <div class="container-grid">
             <span class="copyright">2024 - Direitos Reservados</span>
@@ -123,5 +158,47 @@
         </div>
     </footer>
 </body>
+
+<script>
+    // Dados dos projetos (exemplo)
+    const projeto1 =
+    {
+        nome: 'GamificaAi',
+        link: 'http://projetomqttsenai.ddns.net:3000',
+        linkConnect: 'http://projetomqttsenai.ddns.net:3000/connect',
+        linkPublish: 'http://projetomqttsenai.ddns.net:3000/publish',
+        endPoint: 'a3bm9b3szpp5y6-ats.iot.us-east-1.amazonaws.com',
+        topico: 'meuTopico/mqtt',
+        keyFile: 'private.pem.key',
+        certFile: 'certificate.pem.crt',
+        caFile: 'AmazonRootCA1.pem',
+        payload1: {
+            acao: 'acender LED',
+            atributo: 'LedStatus',
+            valor: "2"
+        }
+    }
+
+    const projeto2 =
+    {
+        nome: 'WPC',
+        link: 'http://projetomqttsenai.ddns.net:3000',
+        linkConnect: 'http://projetomqttsenai.ddns.net:3000/connect',
+        linkPublish: 'http://projetomqttsenai.ddns.net:3000/publish',
+        endPoint: 'amov3yqkadyv5-ats.iot.us-east-1.amazonaws.com/',
+        topico: 'projeto/site',
+        keyFile: 'privada1.pem.key',
+        certFile: 'dispositivo1.pem.crt',
+        caFile: 'Amazon1.pem',
+        payload1: {
+            acao: 'ligar bomba',
+            atributo: "BombaIrrigacao",
+            valor: true
+        }
+    }
+
+    // Outros projetos podem ser adicionados aqui
+
+</script>
 
 </html>

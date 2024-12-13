@@ -16,8 +16,24 @@
     --tipografia: "Montserrat"
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: var(--tipografia);
+}
+
+.display_none{
+    display: none !important;
+}
+
+.display_block{
+    display: block !important;
+}
+
+.display_flex{
+    display: flex !important;
 }
 
 .container-grid {
@@ -27,6 +43,8 @@ body {
     margin: 0 auto;
 }
 
+
+/* ============ CABECALHO ============ */
 header {
     height: 100px;
     
@@ -42,14 +60,22 @@ header .container-grid {
     align-items: center;
 }
 
-header .logo {
+.logo {
     width: 200px;
     
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    cursor: pointer;
 }
 
+.span_voltar{
+    cursor: pointer;
+}
+
+
+/* ============ BANNER ============ */
 .banner {
     height: calc(100vh - 100px);
 
@@ -92,11 +118,13 @@ header .logo {
     transform: scale(1.05);
 }
 
+
+/* ============ MAIN HOME ============ */
 section {
     padding: 80px 0;
 }
 
-h2 {
+.main_home h2 {
     text-align: center;
     margin-bottom: 70px;
 }
@@ -118,6 +146,7 @@ h2 {
     display: flex;
     flex-wrap: wrap;
     gap: 5.3%;
+    justify-content: center;
 }
 
 .grid-projetos a {
@@ -159,6 +188,69 @@ h2 {
     bottom: 0px;
 }
 
+
+/* ============ MAIN FORM ============ */
+.main_form_container{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 4px 4px 10px 0px #000000a9;
+    border-radius: 6px;
+    padding: 50px 5%;
+    margin: 100px auto;
+}
+.main_form_container h2{
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+#connectBtn,
+.main_form_container input{
+    margin: 5px 0 20px;
+    height: 35px;
+    border-radius: 6px;
+    font-size: 16px;
+    padding-left: 3px;
+    border: solid 1px;
+}
+
+#connectBtn{
+    max-width: 300px;
+    width: 100%;
+    margin-inline: auto;
+    background-color: #7B0132;
+    color: #fff;
+    border: solid 1px #fff;
+    height: 45px;
+}
+
+.main_form_container .linha_btn{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5%;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.main_form_container .btn_acao{
+    background-color: #f0e3e8;
+    height: 35px;
+    flex-basis: 20%;
+    border-radius: 6px;
+    text-transform: capitalize;
+}
+
+#status{
+    text-align: center;
+    margin-top: 20px;
+    color: rgb(255, 115, 0);
+    font-weight: bold;
+    font-size: 18px;
+}
+
+
+/* ============ FOOTER ============ */
 footer {
     height: 190px;
 
@@ -272,13 +364,17 @@ footer .user-creditos {
         flex-wrap: nowrap;
 
         overflow-x: scroll;
-
     }
     
     .grid-projetos a {
         width: 250px;
 
         flex-basis: unset;
+    }
+
+    .main_form_container .btn_acao{
+        flex-basis: 40%;
+        margin-bottom: 10px;
     }
 }
 
