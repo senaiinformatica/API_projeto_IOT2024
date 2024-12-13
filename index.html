@@ -59,6 +59,15 @@
                         </div>
                     </div>
                 </a>
+                <a href="#" onclick="mostrarForm(projeto2)">
+                    <div class="card">
+                        <img src="" alt="">
+                        <div class="texto-nome">
+                            <span class="nome-projeto">RealTime</span>
+                            <span class="user-github"></span>
+                        </div>
+                    </div>
+                </a>
                 <a href="#" onclick="mostrarForm(projeto)">
                     <div class="card">
                         <img src="" alt="">
@@ -68,51 +77,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="#">
-                    <div class="card">
-                        <img src="" alt="">
-                        <div class="texto-nome">
-                            <span class="nome-projeto">GamificaAi</span>
-                            <span class="user-github">Thiago-Nascimento</span>
-                        </div>
-                    </div>
-                </a>
-                <a href="#">
-                    <div class="card">
-                        <img src="" alt="">
-                        <div class="texto-nome">
-                            <span class="nome-projeto">GamificaAi</span>
-                            <span class="user-github">Thiago-Nascimento</span>
-                        </div>
-                    </div>
-                </a>
-                <a href="#">
-                    <div class="card">
-                        <img src="" alt="">
-                        <div class="texto-nome">
-                            <span class="nome-projeto">GamificaAi</span>
-                            <span class="user-github">Thiago-Nascimento</span>
-                        </div>
-                    </div>
-                </a>
-                <a href="#">
-                    <div class="card">
-                        <img src="" alt="">
-                        <div class="texto-nome">
-                            <span class="nome-projeto">GamificaAi</span>
-                            <span class="user-github">Thiago-Nascimento</span>
-                        </div>
-                    </div>
-                </a>
-                <a href="#">
-                    <div class="card">
-                        <img src="" alt="">
-                        <div class="texto-nome">
-                            <span class="nome-projeto">GamificaAi</span>
-                            <span class="user-github">Thiago-Nascimento</span>
-                        </div>
-                    </div>
-                </a>
+                
             </div>
         </section>
     </main>
@@ -185,66 +150,66 @@
         link: 'http://projetomqttsenai.ddns.net:3000',
         linkConnect: 'http://projetomqttsenai.ddns.net:3000/connect',
         linkPublish: 'http://projetomqttsenai.ddns.net:3000/publish',
-        endPoint: 'Aamov3yqkadyv5-ats.iot.us-east-1.amazonaws.com',
-        topico: 'projeto',
-        keyFile: 'privada1.pem.key',
-        certFile: 'dispositivo1.pem.crt',
-        caFile: 'Amazon1.pem',
+        endPoint: 'amov3yqkadyv5-ats.iot.us-east-1.amazonaws.com',
+        topico: 'projeto/site',
+        keyFile: '1_privada.pem.key',
+        certFile: '1_dispositivo.pem.crt',
+        caFile: '1_AmazonRootCA1.pem',
         payload1: {
             acao: 'ligar bomba',
             atributo: "BombaIrrigacao",
             valor: "true"
+        },
+        payload2: {
+            acao: 'Desligar bomba',
+            atributo: "BombaIrrigacao",
+            valor: false
+        },
+        payload3: {
+            acao: 'Ligar luz',
+            atributo: "LuzJardim",
+            valor: true
+        },
+        payload4: {
+            acao: 'Desligar luz',
+            atributo: "LuzJardim",
+            valor: false
+        },
+        payload5: {
+            acao: 'Ligar ar-condicionado',
+            atributo: "ArCondicionado",
+            valor: true
+        },
+        payload6: {
+            acao: 'Desligar ar-condicionado',
+            atributo: "ArCondicionado",
+            valor: false
+        },
+        payload7: {
+            acao: 'Ligar TV',
+            atributo: "TVSala",
+            valor: true
+        },
+        payload8: {
+            acao: 'Desligar TV',
+            atributo: "TVSala",
+            valor: false
+        },
+        payload9: {
+            acao: 'Ligar cafeteira',
+            atributo: "Cafeteira",
+            valor: true
+        },
+        payload10: {
+            acao: 'Desligar cafeteira',
+            atributo: "Cafeteira",
+            valor: false
+        },
+        payload11: {
+            acao: 'Ligar ventilador',
+            atributo: "Ventilador",
+            valor: true
         }
-        // payload2: {
-        //     acao: 'Desligar bomba',
-        //     atributo: "BombaIrrigacao",
-        //     valor: false
-        // },
-        // payload3: {
-        //     acao: 'Ligar luz',
-        //     atributo: "LuzJardim",
-        //     valor: true
-        // },
-        // payload4: {
-        //     acao: 'Desligar luz',
-        //     atributo: "LuzJardim",
-        //     valor: false
-        // },
-        // payload5: {
-        //     acao: 'Ligar ar-condicionado',
-        //     atributo: "ArCondicionado",
-        //     valor: true
-        // },
-        // payload6: {
-        //     acao: 'Desligar ar-condicionado',
-        //     atributo: "ArCondicionado",
-        //     valor: false
-        // },
-        // payload7: {
-        //     acao: 'Ligar TV',
-        //     atributo: "TVSala",
-        //     valor: true
-        // },
-        // payload8: {
-        //     acao: 'Desligar TV',
-        //     atributo: "TVSala",
-        //     valor: false
-        // },
-        // payload9: {
-        //     acao: 'Ligar cafeteira',
-        //     atributo: "Cafeteira",
-        //     valor: true
-        // },
-        // payload10: {
-        //     acao: 'Desligar cafeteira',
-        //     atributo: "Cafeteira",
-        //     valor: false
-        // },
-        // payload11: {
-        //     acao: 'Ligar ventilador',
-        //     atributo: "Ventilador",
-        //     valor: true
-        // }
     }
 
 
@@ -254,11 +219,11 @@
         link: 'http://projetomqttsenai.ddns.net:3000',
         linkConnect: 'http://projetomqttsenai.ddns.net:3000/connect',
         linkPublish: 'http://projetomqttsenai.ddns.net:3000/publish',
-        endPoint: 'amov3yqkadyv5-ats.iot.us-east-1.amazonaws.com',
-        topico: 'projeto/site',
-        keyFile: 'privada1.pem.key',
-        certFile: 'dispositivo1.pem.crt',
-        caFile: 'Amazon1.pem',
+        endPoint: 'a4tkowcr0lwml-ats.iot.us-east-1.amazonaws.com',
+        topico: 'RealRecebe',
+        keyFile: '2_privada.pem.key',
+        certFile: '2_dispositivo.pem.crt',
+        caFile: '2_AmazonRootCA1.pem',
         payload1: {
             acao: 'Abiri Porta',
             atributo: "BombaIrrigacao",
