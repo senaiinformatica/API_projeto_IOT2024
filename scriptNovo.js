@@ -32,6 +32,15 @@ window.mostrarForm = function (projeto) {
                 ${projeto.payload2 ? `<button id="btnAcao2" class="btn_acao" disabled>${projeto.payload2.acao}</button>` : ""}
                 ${projeto.payload3 ? `<button id="btnAcao3" class="btn_acao" disabled>${projeto.payload3.acao}</button>` : ""}
                 ${projeto.payload4 ? `<button id="btnAcao4" class="btn_acao" disabled>${projeto.payload4.acao}</button>` : ""}
+                ${projeto.payload5 ? `<button id="btnAcao5" class="btn_acao" disabled>${projeto.payload5.acao}</button>` : ""}
+                ${projeto.payload6 ? `<button id="btnAcao6" class="btn_acao" disabled>${projeto.payload6.acao}</button>` : ""}
+                ${projeto.payload7 ? `<button id="btnAcao7" class="btn_acao" disabled>${projeto.payload7.acao}</button>` : ""}
+                ${projeto.payload8 ? `<button id="btnAcao8" class="btn_acao" disabled>${projeto.payload8.acao}</button>` : ""}
+                ${projeto.payload9 ? `<button id="btnAcao9" class="btn_acao" disabled>${projeto.payload9.acao}</button>` : ""}
+                ${projeto.payload10 ? `<button id="btnAcao10" class="btn_acao" disabled>${projeto.payload10.acao}</button>` : ""}
+                ${projeto.payload11 ? `<button id="btnAcao11" class="btn_acao" disabled>${projeto.payload11.acao}</button>` : ""}
+
+
                 </div>
                 
                 <p id="status"></p>

@@ -168,6 +168,16 @@ section {
     position: relative;
 }
 
+.card img {
+    width: 100%;
+    height: 70%;
+
+    object-fit: cover;
+
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
 .card .texto-nome {
     height: 30%;
     width: 100%;
@@ -360,10 +370,6 @@ footer .user-creditos {
 
         padding-left: 20px;
         padding-top: 20px;
-        
-        flex-wrap: nowrap;
-
-        overflow-x: scroll;
     }
     
     .grid-projetos a {
