@@ -78,6 +78,28 @@ window.mostrarForm = function (projeto) {
 
         if (projeto.payload4)
             document.getElementById("btnAcao4").addEventListener("click", () => publicar(projeto, projeto.payload4));
+        
+        if (projeto.payload5)
+            document.getElementById("btnAcao5").addEventListener("click", () => publicar(projeto, projeto.payload5));
+
+        if (projeto.payload6)
+            document.getElementById("btnAcao6").addEventListener("click", () => publicar(projeto, projeto.payload6));
+
+        if (projeto.payload7)
+            document.getElementById("btnAcao7").addEventListener("click", () => publicar(projeto, projeto.payload7));
+
+        if (projeto.payload8)
+            document.getElementById("btnAcao8").addEventListener("click", () => publicar(projeto, projeto.payload8));
+
+        if (projeto.payload9)
+            document.getElementById("btnAcao9").addEventListener("click", () => publicar(projeto, projeto.payload9));
+
+        if (projeto.payload10)
+            document.getElementById("btnAcao10").addEventListener("click", () => publicar(projeto, projeto.payload10));
+
+        if (projeto.payload11)
+            document.getElementById("btnAcao11").addEventListener("click", () => publicar(projeto, projeto.payload11));
+        
 
     }
 
