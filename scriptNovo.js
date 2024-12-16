@@ -197,7 +197,7 @@ function conectarBroker(projeto) {
 }
 
 // Função para publicar no tópico
-window.publicar = function (projeto) {
+window.publicar = function (projeto, payload) {
     
     const userInput = document.getElementById('user').value.trim();
     const tokenInput = document.getElementById('token').value.trim();
@@ -210,10 +210,10 @@ window.publicar = function (projeto) {
     const mensagem = {
         user: userInput,
         token: tokenInput,
-        [projeto.payload1.atributo]: projeto.payload1.valor
+        [payload.atributo]: payload.valor
     };
 
-    console.log(projeto);
+    console.log(projeto, payload);
     
     console.log('mensagem:', mensagem);
     
