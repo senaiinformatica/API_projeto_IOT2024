@@ -243,8 +243,11 @@ section {
     margin: 10px 0;
 }
 
+.main_form_container .btn_acao:disabled{
+    background-color: #7eb1db36;
+
+}
 .main_form_container .btn_acao{
-    background-color: #f0e3e8;
     height: 35px;
     flex-basis: 20%;
     border-radius: 6px;
