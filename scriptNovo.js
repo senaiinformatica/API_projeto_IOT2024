@@ -198,7 +198,6 @@ function conectarBroker(projeto) {
 
 // Função para publicar no tópico
 window.publicar = function (projeto) {
-    alert("Publicado com sucesso!");
     
     const userInput = document.getElementById('user').value.trim();
     const tokenInput = document.getElementById('token').value.trim();
@@ -233,6 +232,7 @@ window.publicar = function (projeto) {
         .then(response => response.json())
         .then(data => {
             console.log(data);
+            alert("Publicado com sucesso!");
             // statusEl.innerHTML = 'Mensagem publicada no tópico!';
         })
         .catch(error => {
