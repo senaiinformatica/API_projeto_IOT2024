@@ -117,11 +117,23 @@ window.mostrarForm = function (projeto) {
 
 //Função que desconecta e limpa o socket
 function desconectarBroker() {
-    if (socket) {
-        socket.disconnect();
-        console.log("Desconectado do broker.");
-        socket = null;
-    }
+    statusEl = document.getElementById('status');
+
+    fetch('http://projetomqttsenai.ddns.net:3000/disconnect', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data.message);  // Exibe a resposta do backend no console
+        statusEl.innerText = "Desconectado do Broker!";
+    })
+    .catch(error => {
+        console.error('Erro ao desconectar:', error);
+        statusEl.innerText = "Erro ao desconectar do Broker.";
+    });
 }
 
 //Função que renderiza a Home
@@ -147,6 +159,8 @@ window.mostrarHome = function () {
 function conectarBroker(projeto) {
     statusEl = document.getElementById('status');
 
+    console.log('projeto:', projeto);
+
     return fetch(projeto.linkConnect, {
         method: 'POST',
         headers: {
@@ -158,10 +172,12 @@ function conectarBroker(projeto) {
             certFile: projeto.certFile,
             caFile: projeto.caFile
         })
+        
     }).then(response => response.json())
         .then(data => {
             statusEl.innerText = "Conectado ao Broker!";
-            console.log(data);
+
+            console.log('Conectado ao Broker:', data);
             
             configurarSocket(projeto);
         }).catch(error => {
@@ -199,6 +215,7 @@ window.publicar = function (projeto) {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
+            endpoint: projeto.endPoint,
             topic: projeto.topico,
             message: mensagem
         })
