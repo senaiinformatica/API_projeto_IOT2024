@@ -244,11 +244,11 @@ section {
 }
 
 .main_form_container .btn_acao:disabled{
-    background-color: #7eb1db36;
+    background-color: #e4eef7;
     
 }
 .main_form_container .btn_acao{
-    background-color: #77c2ff85;
+    background-color: #b8dfff;
     height: 35px;
     flex-basis: 20%;
     border-radius: 6px;
