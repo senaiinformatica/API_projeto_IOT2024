@@ -69,36 +69,48 @@ window.mostrarForm = function (projeto) {
 
         if (projeto.payload1)
             document.getElementById("btnAcao1").addEventListener("click", () => publicar(projeto, projeto.payload1));
+            document.getElementById("btnAcao1").addEventListener("touchstart", () => publicar(projeto, projeto.payload1));
 
         if (projeto.payload2)
             document.getElementById("btnAcao2").addEventListener("click", () => publicar(projeto, projeto.payload2));
+            document.getElementById("btnAcao2").addEventListener("touchstart", () => publicar(projeto, projeto.payload2));
+            
 
         if (projeto.payload3)
             document.getElementById("btnAcao3").addEventListener("click", () => publicar(projeto, projeto.payload3));
+            document.getElementById("btnAcao3").addEventListener("touchstart", () => publicar(projeto, projeto.payload3));
 
         if (projeto.payload4)
             document.getElementById("btnAcao4").addEventListener("click", () => publicar(projeto, projeto.payload4));
-        
+            document.getElementById("btnAcao4").addEventListener("touchstart", () => publicar(projeto, projeto.payload4));
+            
         if (projeto.payload5)
             document.getElementById("btnAcao5").addEventListener("click", () => publicar(projeto, projeto.payload5));
+            document.getElementById("btnAcao5").addEventListener("touchstart", () => publicar(projeto, projeto.payload5));
 
         if (projeto.payload6)
             document.getElementById("btnAcao6").addEventListener("click", () => publicar(projeto, projeto.payload6));
+            document.getElementById("btnAcao6").addEventListener("touchstart", () => publicar(projeto, projeto.payload6));
 
         if (projeto.payload7)
             document.getElementById("btnAcao7").addEventListener("click", () => publicar(projeto, projeto.payload7));
+            document.getElementById("btnAcao7").addEventListener("touchstart", () => publicar(projeto, projeto.payload7));
 
         if (projeto.payload8)
             document.getElementById("btnAcao8").addEventListener("click", () => publicar(projeto, projeto.payload8));
+            document.getElementById("btnAcao8").addEventListener("touchstart", () => publicar(projeto, projeto.payload8));
 
         if (projeto.payload9)
             document.getElementById("btnAcao9").addEventListener("click", () => publicar(projeto, projeto.payload9));
+            document.getElementById("btnAcao9").addEventListener("touchstart", () => publicar(projeto, projeto.payload9));
 
         if (projeto.payload10)
             document.getElementById("btnAcao10").addEventListener("click", () => publicar(projeto, projeto.payload10));
+            document.getElementById("btnAcao10").addEventListener("touchstart", () => publicar(projeto, projeto.payload10));
 
         if (projeto.payload11)
             document.getElementById("btnAcao11").addEventListener("click", () => publicar(projeto, projeto.payload11));
+            document.getElementById("btnAcao11").addEventListener("touchstart", () => publicar(projeto, projeto.payload11));
         
 
     }
