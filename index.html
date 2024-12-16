@@ -58,16 +58,16 @@
                 </a>
                 <a href="#" onclick="mostrarForm(projeto2)">
                     <div class="card">
-                        <img src="" alt="">
+                        <img src="./img/realtime.png" alt="">
                         <div class="texto-nome">
                             <span class="nome-projeto">RealTime</span>
                             <span class="user-github"></span>
                         </div>
                     </div>
                 </a>
-                <a href="#" onclick="mostrarForm(projeto)">
+                <a href="#" onclick="mostrarForm(projeto3)">
                     <div class="card">
-                        <img src="" alt="">
+                        <img src="./img/illuminatiPrime.jpeg" alt="">
                         <div class="texto-nome">
                             <span class="nome-projeto">RealTime</span>
                             <span class="user-github"></span>
@@ -155,57 +155,57 @@
         payload1: {
             acao: 'ligar Irrigação',
             atributo: "BombaIrrigacao",
-            valor: "true"
+            valor: true
         },
         payload2: {
             acao: 'Desligar Irrigação',
             atributo: "BombaIrrigacao",
-            valor: "false"
+            valor: false
         },
         payload3: {
             acao: 'Ligar Cx. Agua',
             atributo: "BombaCaixaDeAgua",
-            valor: "true"
+            valor: true
         },
         payload4: {
             acao: 'Desligar Cx. Agua',
             atributo: "BombaCaixaDeAgua",
-            valor: "false"
+            valor: false
         },
         payload5: {
             acao: 'telhado automatico',
             atributo: "Automatico_Telhado",
-            valor: "true"
+            valor: true
         },
         payload6: {
             acao: 'abrir telhado',
             atributo: "Telhado",
-            valor: "true"
+            valor: true
         },
         payload7: {
             acao: 'fechar telhado',
             atributo: "Telhado",
-            valor: "false"
+            valor: false
         },
         payload8: {
             acao: 'Ligar led',
             atributo: "LigarLed",
-            valor: "true"
+            valor: true
         },
         payload9: {
             acao: 'Desligar led',
             atributo: "LigarLed",
-            valor: "false"
+            valor: false
         },
         payload10: {
             acao: 'abrir porta',
             atributo: "Porta",
-            valor: "true"
+            valor: true
         },
         payload11: {
             acao: 'fechar porta',
             atributo: "Porta",
-            valor: "false"
+            valor: false
         }
     }
 
@@ -243,6 +243,49 @@
         }
     }
 
+    const projeto3 =
+    {
+        nome: 'Illuminati Prime',
+        link: 'http://projetomqttsenai.ddns.net:3000',
+        linkConnect: 'http://projetomqttsenai.ddns.net:3000/connect',
+        linkDisconnect: 'http://projetomqttsenai.ddns.net:3000/disconnect',
+        linkPublish: 'http://projetomqttsenai.ddns.net:3000/publish',
+        endPoint: 'ay758iadlk2o3-ats.iot.us-east-1.amazonaws.com',
+        topico: 'projeto/dados',
+        keyFile: '3_privada.pem.key',
+        certFile: '3_dispositivo.pem.crt',
+        caFile: '3_AmazonRootCA1.pem',
+        payload1: {
+            acao: 'ligar umidificador',
+            atributo: "acaoUmidificador ",
+            valor: "ligar"
+        },
+        payload2: {
+            acao: 'desligar umidificador',
+            atributo: "acaoUmidificador",
+            valor: "desligar"
+        },
+        payload3: {
+            acao: 'Ligar esteira',
+            atributo: "acaoMotor",
+            valor: "ligar"
+        },
+        payload4: {
+            acao: 'Desligar esteira',
+            atributo: "acaoMotor",
+            valor: "desligar"
+        }, 
+        payload5: {
+            acao: 'abrir porta',
+            atributo: "comandoPorta",
+            valor: 0
+        },
+        payload6: {
+            acao: 'fechar porta',
+            atributo: "comandoPorta",
+            valor: 1
+        }
+    }
 
     // Outros projetos podem ser adicionados aqui
 

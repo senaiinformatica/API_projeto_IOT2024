@@ -10,7 +10,7 @@
 }
 
 :root {
-    --cor-header-footer: #BE024E;
+    --cor-header-footer: #0066FF;
     --cor-banner: #2800ac;
 
     --tipografia: "Montserrat"
@@ -192,7 +192,7 @@ section {
     border-bottom-right-radius: 6px;
 
     color: white;
-    background-color: #7b0132ad;
+    background-color: #abb2ff;
 
     position: absolute;
     bottom: 0px;
